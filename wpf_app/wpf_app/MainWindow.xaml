@@ -8,11 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <!-- Nagłówek -->
-        <TextBlock Text="Wybierz opcję" FontSize="24" FontWeight="Bold" 
-                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" />
+        <TextBlock Text="Wybierz opcję" FontSize="36" FontWeight="Bold" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,52,0,0" Foreground="#FFE43535" Height="91" Width="346" />
 
         <!-- Przyciski -->
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Margin="0,148,0,0">
             <Button Content="Samochody" Width="200" Height="50" Click="SamochodyButton_Click" />
             <Button Content="Wypożyczenia" Width="200" Height="50" Click="WypozyczeniaButton_Click" />
             <Button Content="Klienci" Width="200" Height="50" Click="KlienciButton_Click" />
