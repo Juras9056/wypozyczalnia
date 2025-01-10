@@ -1,0 +1,21 @@
+﻿<Window x:Class="wpf_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_app"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!-- Nagłówek -->
+        <TextBlock Text="Wybierz opcję" FontSize="24" FontWeight="Bold" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" />
+
+        <!-- Przyciski -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <Button Content="Samochody" Width="200" Height="50" Click="SamochodyButton_Click" />
+            <Button Content="Wypożyczenia" Width="200" Height="50" Click="WypozyczeniaButton_Click" />
+            <Button Content="Klienci" Width="200" Height="50" Click="KlienciButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

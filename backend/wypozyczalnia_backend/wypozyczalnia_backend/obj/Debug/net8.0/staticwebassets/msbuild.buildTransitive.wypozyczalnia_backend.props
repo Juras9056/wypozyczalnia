@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\wypozyczalnia_backend.props" />
+</Project>
