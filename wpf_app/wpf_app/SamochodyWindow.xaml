@@ -1,12 +1,117 @@
 ﻿<Window x:Class="wpf_app.SamochodyWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_app"
-        mc:Ignorable="d"
-        Title="SamochodyWindow" Height="450" Width="800">
+        xmlns:global="clr-namespace:"
+        Title="Zarządzanie Samochodami" Height="450" Width="800">
+    
+    <!-- Zasoby dla okna -->
+    <Window.Resources>
+        <global:BoolToYesNoConverter x:Key="BoolToYesNoConverter" />
+    </Window.Resources>
+
     <Grid>
-        
+        <StackPanel Margin="10">
+            <TextBlock Text="Dodaj Samochód" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Vertical" Margin="0,5">
+                <TextBlock Text="Marka:"/>
+                <TextBox x:Name="MarkaTextBox" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,5">
+                <TextBlock Text="Model:"/>
+                <TextBox x:Name="ModelTextBox" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,5">
+                <TextBlock Text="Paliwo:"/>
+                <TextBox x:Name="PaliwoTextBox" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,5">
+                <TextBlock Text="Rok Produkcji:"/>
+                <TextBox x:Name="RokProdukcjiTextBox" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,5">
+                <TextBlock Text="Moc w KM:"/>
+                <TextBox x:Name="MocKmTextBox" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,5">
+                <TextBlock Text="Ilość Osób:"/>
+                <TextBox x:Name="IloscOsobTextBox" />
+            </StackPanel>
+
+            <CheckBox x:Name="KlimatyzacjaCheckBox" Content="Klimatyzacja" Margin="0,5"/>
+            <CheckBox x:Name="NawigacjaCheckBox" Content="Nawigacja" Margin="0,5"/>
+            <CheckBox x:Name="CzujnikiCheckBox" Content="Czujniki Parkowania" Margin="0,5"/>
+            
+            <StackPanel>
+                <!-- Nagłówki kolumn -->
+                <Grid Width="800" Background="LightGray" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" /> <!-- Marka -->
+                        <ColumnDefinition Width="100" /> <!-- Model -->
+                        <ColumnDefinition Width="100" /> <!-- Rok Produkcji -->
+                        <ColumnDefinition Width="100" /> <!-- Paliwo -->
+                        <ColumnDefinition Width="100" /> <!-- Ilość Osób -->
+                        <ColumnDefinition Width="100" /> <!-- Typ -->
+                        <ColumnDefinition Width="100" /> <!-- Klimatyzacja -->
+                        <ColumnDefinition Width="100" /> <!-- Nawigacja -->
+                        <ColumnDefinition Width="100" /> <!-- Czy Dostępny -->
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Text="Marka" FontWeight="Bold" Grid.Column="0" Margin="5" />
+                    <TextBlock Text="Model" FontWeight="Bold" Grid.Column="1" Margin="5" />
+                    <TextBlock Text="Rok Produkcji" FontWeight="Bold" Grid.Column="2" Margin="5" />
+                    <TextBlock Text="Paliwo" FontWeight="Bold" Grid.Column="3" Margin="5" />
+                    <TextBlock Text="Ilość Osób" FontWeight="Bold" Grid.Column="4" Margin="5" />
+                    <TextBlock Text="Typ" FontWeight="Bold" Grid.Column="5" Margin="5" />
+                    <TextBlock Text="Klimatyzacja" FontWeight="Bold" Grid.Column="6" Margin="5" />
+                    <TextBlock Text="Nawigacja" FontWeight="Bold" Grid.Column="7" Margin="5" />
+                    <TextBlock Text="Czy Dostępny" FontWeight="Bold" Grid.Column="8" Margin="5" />
+                </Grid>
+
+                <!-- ListBox z danymi -->
+                <ListBox x:Name="SamochodyListBox"
+                         Width="800" Height="200"
+                         Margin="10"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" /> <!-- Marka -->
+                                    <ColumnDefinition Width="100" /> <!-- Model -->
+                                    <ColumnDefinition Width="100" /> <!-- Rok Produkcji -->
+                                    <ColumnDefinition Width="100" /> <!-- Paliwo -->
+                                    <ColumnDefinition Width="100" /> <!-- Ilość Osób -->
+                                    <ColumnDefinition Width="100" /> <!-- Typ -->
+                                    <ColumnDefinition Width="100" /> <!-- Klimatyzacja -->
+                                    <ColumnDefinition Width="100" /> <!-- Nawigacja -->
+                                    <ColumnDefinition Width="100" /> <!-- Czy Dostępny -->
+                                </Grid.ColumnDefinitions>
+                                
+                                <TextBlock Text="{Binding Marka}" Grid.Column="0" Margin="5" />
+                                <TextBlock Text="{Binding Model}" Grid.Column="1" Margin="5" />
+                                <TextBlock Text="{Binding RokProdukcji}" Grid.Column="2" Margin="5" />
+                                <TextBlock Text="{Binding Paliwo}" Grid.Column="3" Margin="5" />
+                                <TextBlock Text="{Binding IloscOsob}" Grid.Column="4" Margin="5" />
+                                <TextBlock Text="{Binding Typ}" Grid.Column="5" Margin="5" />
+                                <TextBlock Text="{Binding Klimatyzacja, Converter={StaticResource BoolToYesNoConverter}}" Grid.Column="6" Margin="5" />
+                                <TextBlock Text="{Binding Nawigacja, Converter={StaticResource BoolToYesNoConverter}}" Grid.Column="7" Margin="5" />
+                                <TextBlock Text="{Binding CzyDostepny}" Grid.Column="8" Margin="5" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+
+            <Button Content="Dodaj Samochód" Click="DodajSamochod_Click" Margin="0,10"/>
+            <ComboBox x:Name="SamochodyComboBox"></ComboBox>
+        </StackPanel>
     </Grid>
 </Window>
