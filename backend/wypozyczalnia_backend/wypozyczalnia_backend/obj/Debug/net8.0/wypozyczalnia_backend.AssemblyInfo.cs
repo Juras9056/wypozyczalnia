@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wypozyczalnia_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d759973b4e45cd5d71d4ea0abfa6e4ca059489a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9998faed3308795664296d519de7ab5fb6a9531")]
 [assembly: System.Reflection.AssemblyProductAttribute("wypozyczalnia_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wypozyczalnia_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

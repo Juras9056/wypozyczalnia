@@ -43,16 +43,19 @@ namespace wpf_app
                 {
                     Marka = MarkaTextBox.Text,
                     Model = ModelTextBox.Text,
-                    Paliwo = int.TryParse(PaliwoTextBox.Text, out var paliwo) ? paliwo : 0, // Poprawna konwersja string -> int
-                    RokProdukcji = int.TryParse(RokProdukcjiTextBox.Text, out var rok) ? rok : 0,
-                    MocKm = int.TryParse(MocKmTextBox.Text, out var moc) ? moc : 0,
-                    IloscOsob = int.TryParse(IloscOsobTextBox.Text, out var ilosc) ? ilosc : 0,
+                    Paliwo = int.Parse(PaliwoTextBox.Text), // Oczekuje wartości int
+                    MocKm = int.Parse(MocKmTextBox.Text),
+                    RokProdukcji = int.Parse(RokProdukcjiTextBox.Text),
+                    IloscOsob = int.Parse(IloscOsobTextBox.Text),
                     Klimatyzacja = KlimatyzacjaCheckBox.IsChecked ?? false,
                     Nawigacja = NawigacjaCheckBox.IsChecked ?? false,
                     CzujnikiParowania = CzujnikiCheckBox.IsChecked ?? false,
                     CzyDostepny = true
                 };
 
+    
+
+                // Wyślij żądanie POST do API
                 await _apiClient.AddSamochodAsync(nowySamochod);
                 LoadSamochody();
                 MessageBox.Show("Dodano nowy samochód.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -64,26 +67,50 @@ namespace wpf_app
         }
 
 
+
         private async void UsunSamochod_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var wybranySamochod = SamochodyComboBox.SelectedItem as Samochod;
-                if (wybranySamochod != null)
+                // Weryfikacja, czy wybrano samochód
+                if (SamochodyComboBox.Items.Count == 0)
                 {
-                    await _apiClient.DeleteSamochodAsync(wybranySamochod.Id);
-                    LoadSamochody();
-                    MessageBox.Show("Samochód został usunięty.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Nie ma samochodów do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
                 }
-                else
+
+                var wybranySamochod = SamochodyComboBox.SelectedItem as Samochod;
+                if (wybranySamochod == null)
                 {
                     MessageBox.Show("Proszę wybrać samochód do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
                 }
+
+                // Potwierdzenie usunięcia
+                var wynik = MessageBox.Show($"Czy na pewno chcesz usunąć samochód {wybranySamochod.Marka} {wybranySamochod.Model}?",
+                    "Potwierdzenie usunięcia",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (wynik != MessageBoxResult.Yes)
+                {
+                    return; // Użytkownik anulował
+                }
+
+                // Usunięcie samochodu przez API
+                await _apiClient.DeleteSamochodAsync(wybranySamochod.Id);
+
+                // Odświeżenie listy samochodów
+                LoadSamochody();
+
+                MessageBox.Show("Samochód został usunięty.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
+                // Wyświetlenie szczegółowego komunikatu o błędzie
                 MessageBox.Show($"Błąd podczas usuwania samochodu: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

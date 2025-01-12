@@ -59,15 +59,21 @@ public class ApiClient
     }
 
 
-    // Dodaj nowy samochód
     public async Task AddSamochodAsync(Samochod samochod)
     {
         var json = JsonSerializer.Serialize(samochod);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         var response = await _httpClient.PostAsync("Samochod", content);
-        response.EnsureSuccessStatusCode();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            // Zapisz szczegóły odpowiedzi z serwera
+            var errorResponse = await response.Content.ReadAsStringAsync();
+            throw new Exception($"Błąd podczas dodawania samochodu. Kod: {response.StatusCode}, Odpowiedź: {errorResponse}");
+        }
     }
+
 
     // Usuń samochód po ID
     public async Task DeleteSamochodAsync(int id)
@@ -75,4 +81,17 @@ public class ApiClient
         var response = await _httpClient.DeleteAsync($"Samochod/{id}");
         response.EnsureSuccessStatusCode();
     }
+    
+    public async Task UpdateKlientAsync(int id, Klient klient)
+    {
+        var json = JsonSerializer.Serialize(klient);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        var response = await _httpClient.PutAsync($"Klient/{id}", content);
+        response.EnsureSuccessStatusCode();
+    }
+
+
+    
+    
 }

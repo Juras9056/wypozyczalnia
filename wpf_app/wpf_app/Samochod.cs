@@ -40,4 +40,6 @@ public class Samochod
 
     [JsonPropertyName("czyDostepny")]
     public bool CzyDostepny { get; set; }
+
+    
 }

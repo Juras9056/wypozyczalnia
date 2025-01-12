@@ -59,20 +59,28 @@ public class SamochodController : ControllerBase
         return Ok(samochod);
     }
 
-    // POST: api/Samochod
     [HttpPost]
-    public async Task<IActionResult> Create(Samochod samochod)
+    public async Task<IActionResult> Create([FromBody] Samochod samochod)
     {
-        if (samochod == null)
+        try
         {
-            return BadRequest("Dane samochodu są nieprawidłowe.");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _context.Samochody.Add(samochod);
+            await _context.SaveChangesAsync(); // Tutaj występuje błąd
+            return Ok(samochod);
         }
-
-        _context.Samochody.Add(samochod);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetById), new { id = samochod.Id }, samochod);
+        catch (Exception ex)
+        {
+            // Logowanie szczegółów błędu
+            return StatusCode(500, $"Błąd podczas zapisu danych: {ex.Message}. Szczegóły: {ex.InnerException?.Message}");
+        }
     }
+
+
 
     // PUT: api/Samochod/{id}
     [HttpPut("{id}")]
