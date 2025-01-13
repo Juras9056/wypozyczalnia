@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Text.Json.Serialization;
 
-namespace wypozyczalnia_backend.Models;
-[Table("Wypozyczenie")]
-public class Wypozyczenie : BaseModel
+namespace wpf_app;
+
+public class Wypozyczenie
 {
+    public int Id { get; set; }
     public int IdKlient { get; set; }
     public int IdSamochod { get; set; }
     public DateTime DataOd { get; set; }

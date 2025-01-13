@@ -1,0 +1,413 @@
+[
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "wypozyczalnia_backend.Dto.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.KlientController",
+    "Method": "GetAll",
+    "RelativePath": "api/Klient",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.KlientController",
+    "Method": "Create",
+    "RelativePath": "api/Klient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "klient",
+        "Type": "wypozyczalnia_backend.Models.Klient",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.KlientController",
+    "Method": "GetById",
+    "RelativePath": "api/Klient/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.KlientController",
+    "Method": "Update",
+    "RelativePath": "api/Klient/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "klient",
+        "Type": "wypozyczalnia_backend.Models.Klient",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.KlientController",
+    "Method": "Delete",
+    "RelativePath": "api/Klient/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SamochodController",
+    "Method": "GetAll",
+    "RelativePath": "api/Samochod",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SamochodController",
+    "Method": "Create",
+    "RelativePath": "api/Samochod",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "samochod",
+        "Type": "wypozyczalnia_backend.Models.Samochod",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SamochodController",
+    "Method": "GetById",
+    "RelativePath": "api/Samochod/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SamochodController",
+    "Method": "Update",
+    "RelativePath": "api/Samochod/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "samochod",
+        "Type": "wypozyczalnia_backend.Models.Samochod",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SamochodController",
+    "Method": "Delete",
+    "RelativePath": "api/Samochod/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SlownikController",
+    "Method": "GetAll",
+    "RelativePath": "api/Slownik",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SlownikController",
+    "Method": "Create",
+    "RelativePath": "api/Slownik",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slownik",
+        "Type": "wypozyczalnia_backend.Models.Slownik",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SlownikController",
+    "Method": "GetById",
+    "RelativePath": "api/Slownik/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SlownikController",
+    "Method": "Update",
+    "RelativePath": "api/Slownik/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "slownik",
+        "Type": "wypozyczalnia_backend.Models.Slownik",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.SlownikController",
+    "Method": "Delete",
+    "RelativePath": "api/Slownik/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.UzytkownikController",
+    "Method": "GetAll",
+    "RelativePath": "api/Uzytkownik",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.UzytkownikController",
+    "Method": "Create",
+    "RelativePath": "api/Uzytkownik",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uzytkownik",
+        "Type": "wypozyczalnia_backend.Models.Uzytkownik",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.UzytkownikController",
+    "Method": "GetByLogin",
+    "RelativePath": "api/Uzytkownik/{login}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.UzytkownikController",
+    "Method": "Update",
+    "RelativePath": "api/Uzytkownik/{login}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "uzytkownik",
+        "Type": "wypozyczalnia_backend.Models.Uzytkownik",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.UzytkownikController",
+    "Method": "Delete",
+    "RelativePath": "api/Uzytkownik/{login}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.WypozyczenieController",
+    "Method": "GetAll",
+    "RelativePath": "api/Wypozyczenie",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.WypozyczenieController",
+    "Method": "Create",
+    "RelativePath": "api/Wypozyczenie",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "wypozyczenie",
+        "Type": "wypozyczalnia_backend.Models.Wypozyczenie",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.WypozyczenieController",
+    "Method": "GetById",
+    "RelativePath": "api/Wypozyczenie/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.WypozyczenieController",
+    "Method": "Update",
+    "RelativePath": "api/Wypozyczenie/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "wypozyczenie",
+        "Type": "wypozyczalnia_backend.Models.Wypozyczenie",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "wypozyczalnia_backend.Controllers.WypozyczenieController",
+    "Method": "Delete",
+    "RelativePath": "api/Wypozyczenie/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

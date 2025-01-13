@@ -5,12 +5,30 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10">
             <!-- Formularz do zarządzania klientem -->
-            <TextBox x:Name="ImieTextBox" Text="" Margin="5" />
-            <TextBox x:Name="NazwiskoTextBox" Text="" Margin="5" />
-            <TextBox x:Name="NazwaTextBox" Text="" Margin="5" />
-            <TextBox x:Name="PESELTextBox" Text="" Margin="5" />
-            <TextBox x:Name="NrTelefonuTextBox" Text="" Margin="5" />
-            <TextBox x:Name="DowodOsobistyTextBox" Text="" Margin="5" />
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Imię:" FontWeight="Bold" />
+                <TextBox x:Name="ImieTextBox" Text="" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Nazwisko:" FontWeight="Bold" />
+                <TextBox x:Name="NazwiskoTextBox" Text="" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Nazwa:" FontWeight="Bold" />
+                <TextBox x:Name="NazwaTextBox" Text="" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="PESEL:" FontWeight="Bold" />
+                <TextBox x:Name="PESELTextBox" Text="" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Nr Telefonu:" FontWeight="Bold" />
+                <TextBox x:Name="NrTelefonuTextBox" Text="" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Dowód Osobisty:" FontWeight="Bold" />
+                <TextBox x:Name="DowodOsobistyTextBox" Text="" />
+            </StackPanel>
 
             <!-- Przyciski akcji -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">

@@ -31,12 +31,32 @@ public partial class KlienciWindow : Window
     // Dodanie nowego klienta
     private async void DodajKlienta_Click(object sender, RoutedEventArgs e)
     {
+        // Walidacja danych wejściowych
+        if (string.IsNullOrWhiteSpace(ImieTextBox.Text))
+        {
+            MessageBox.Show("Pole 'Imię' nie może być puste.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(NazwiskoTextBox.Text))
+        {
+            MessageBox.Show("Pole 'Nazwisko' nie może być puste.");
+            return;
+        }
+
+        if (!long.TryParse(PESELTextBox.Text, out var pesel))
+        {
+            MessageBox.Show("PESEL musi być liczbą.");
+            return;
+        }
+
+        // Tworzenie nowego obiektu Klient
         var nowyKlient = new Klient
         {
             Imie = ImieTextBox.Text,
             Nazwisko = NazwiskoTextBox.Text,
             Nazwa = NazwaTextBox.Text,
-            Pesel = TryParsePesel(PESELTextBox.Text),
+            Pesel = pesel,
             NrTelefonu = NrTelefonuTextBox.Text,
             DowodOsobisty = DowodOsobistyTextBox.Text
         };
@@ -53,7 +73,7 @@ public partial class KlienciWindow : Window
         }
     }
 
-    // Edycja istniejącego klienta
+
     private async void EdytujKlienta_Click(object sender, RoutedEventArgs e)
     {
         if (KlienciListView.SelectedItem is not Klient wybranyKlient)
@@ -62,10 +82,30 @@ public partial class KlienciWindow : Window
             return;
         }
 
+        // Walidacja danych wejściowych
+        if (string.IsNullOrWhiteSpace(ImieTextBox.Text))
+        {
+            MessageBox.Show("Pole 'Imię' nie może być puste.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(NazwiskoTextBox.Text))
+        {
+            MessageBox.Show("Pole 'Nazwisko' nie może być puste.");
+            return;
+        }
+
+        if (!long.TryParse(PESELTextBox.Text, out var pesel))
+        {
+            MessageBox.Show("PESEL musi być liczbą.");
+            return;
+        }
+
+        // Aktualizacja wybranego klienta
         wybranyKlient.Imie = ImieTextBox.Text;
         wybranyKlient.Nazwisko = NazwiskoTextBox.Text;
         wybranyKlient.Nazwa = NazwaTextBox.Text;
-        wybranyKlient.Pesel = TryParsePesel(PESELTextBox.Text);
+        wybranyKlient.Pesel = pesel;
         wybranyKlient.NrTelefonu = NrTelefonuTextBox.Text;
         wybranyKlient.DowodOsobisty = DowodOsobistyTextBox.Text;
 
@@ -80,6 +120,8 @@ public partial class KlienciWindow : Window
             MessageBox.Show($"Błąd podczas edytowania klienta: {ex.Message}");
         }
     }
+
+    
 
     // Usunięcie klienta
     private async void UsunKlienta_Click(object sender, RoutedEventArgs e)

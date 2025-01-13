@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using wpf_app;
 using wypozyczalnia_backend.Models;
 
 namespace wypozyczalnia_backend;
@@ -14,7 +15,8 @@ public class AppDbContext : DbContext
     public DbSet<Samochod> Samochody { get; set; }
 
     public DbSet<Klient> Klienci { get; set; }
-    
+    public object Wypozyczenie { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Mapowanie tabeli Samochod

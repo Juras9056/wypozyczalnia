@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using wpf_app;
 using wypozyczalnia_backend.Models;
 
 namespace wypozyczalnia_backend.Controllers;
@@ -30,12 +31,18 @@ public class WypozyczenieController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Wypozyczenie wypozyczenie)
+    public async Task<IActionResult> Create([FromBody] Wypozyczenie wypozyczenie)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         _context.Wypozyczenia.Add(wypozyczenie);
         await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetById), new { id = wypozyczenie.Id }, wypozyczenie);
     }
+
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, Wypozyczenie wypozyczenie)
