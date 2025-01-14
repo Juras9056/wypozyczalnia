@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:wpf_app"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
     <Grid>
         <!-- Nagłówek -->
         <TextBlock Text="Wybierz opcję" FontSize="36" FontWeight="Bold" 
@@ -18,4 +19,5 @@
             <Button Content="Klienci" Width="200" Height="50" Click="KlienciButton_Click" />
         </StackPanel>
     </Grid>
+    </ScrollViewer>
 </Window>

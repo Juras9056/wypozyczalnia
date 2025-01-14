@@ -88,8 +88,10 @@ namespace wpf_app
         // Usuń samochód po ID
         public async Task DeleteSamochodAsync(int id)
         {
-            await HandleApiCallAsync<object>(() => _httpClient.DeleteAsync($"Samochod/{id}"));
+            HttpResponseMessage response = await _httpClient.DeleteAsync($"http://localhost:5298/api/Samochod/{id}");
+            response.EnsureSuccessStatusCode();
         }
+
 
         // Aktualizuj klienta po ID
         public async Task UpdateKlientAsync(int id, Klient klient)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 
 namespace wpf_app
@@ -66,35 +65,6 @@ namespace wpf_app
             }
         }
 
-        private async void EdytujWypozyczenie_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (WypozyczeniaListView.SelectedItem is not Wypozyczenie selected)
-                {
-                    MessageBox.Show("Wybierz wypożyczenie do edycji.");
-                    return;
-                }
-
-                selected.IdKlient = int.Parse(IdKlientTextBox.Text);
-                selected.IdSamochod = int.Parse(IdSamochodTextBox.Text);
-                selected.DataOd = DataOdDatePicker.SelectedDate ?? DateTime.Now;
-                selected.DataDo = DataDoDatePicker.SelectedDate ?? DateTime.Now;
-                selected.Ilosc = int.Parse(IloscTextBox.Text);
-                selected.TypIlosci = TypIlosciTextBox.Text;
-                selected.Stawka = decimal.Parse(StawkaTextBox.Text);
-                selected.Kwota = decimal.Parse(KwotaTextBox.Text);
-
-                await _apiClient.UpdateWypozyczenieAsync(selected.Id, selected);
-                LoadWypozyczenia();
-                MessageBox.Show("Zaktualizowano wypożyczenie.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Błąd podczas edytowania wypożyczenia: {ex.Message}");
-            }
-        }
-
         private async void UsunWypozyczenie_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -113,11 +83,6 @@ namespace wpf_app
             {
                 MessageBox.Show($"Błąd podczas usuwania wypożyczenia: {ex.Message}");
             }
-        }
-
-        private void OdswiezWypozyczenia_Click(object sender, RoutedEventArgs e)
-        {
-            LoadWypozyczenia();
         }
     }
 }

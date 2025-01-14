@@ -68,14 +68,24 @@ public class KlientController : ControllerBase
         await _context.SaveChangesAsync();
         return NoContent();
     }
-
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
+        Console.WriteLine($"Received ID: {id} (Type: {id.GetType()})");
+
         var klient = await _context.Klienci.FindAsync(id);
-        if (klient == null) return NotFound();
+        if (klient == null)
+        {
+            Console.WriteLine("Client not found.");
+            return NotFound();
+        }
+
+        Console.WriteLine($"Deleting client with ID: {klient.Id}");
         _context.Klienci.Remove(klient);
         await _context.SaveChangesAsync();
+
+        Console.WriteLine("Client deleted.");
         return NoContent();
     }
+
 }

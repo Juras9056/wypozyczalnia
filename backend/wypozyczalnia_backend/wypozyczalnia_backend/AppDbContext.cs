@@ -45,5 +45,15 @@ public class AppDbContext : DbContext
 
         // Jeśli inne tabele wymagają mapowania, dodaj je poniżej
         base.OnModelCreating(modelBuilder);
+        
+        {
+            modelBuilder.Entity<Klient>()
+                .Property(k => k.Id)
+                .ValueGeneratedOnAdd()
+                .IsRequired();
+        }
     }
+    
+
+
 }

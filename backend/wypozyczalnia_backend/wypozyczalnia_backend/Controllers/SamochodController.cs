@@ -115,22 +115,25 @@ public class SamochodController : ControllerBase
         return NoContent();
     }
 
-    // DELETE: api/Samochod/{id}
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> DeleteSamochod(int id)
     {
+        Console.WriteLine($"Otrzymano żądanie usunięcia dla ID: {id}");
         var samochod = await _context.Samochody.FindAsync(id);
-
         if (samochod == null)
         {
-            return NotFound($"Samochód o ID {id} nie został znaleziony.");
+            Console.WriteLine($"Nie znaleziono samochodu o ID: {id}");
+            return NotFound();
         }
 
         _context.Samochody.Remove(samochod);
         await _context.SaveChangesAsync();
 
+        Console.WriteLine($"Samochód o ID: {id} został pomyślnie usunięty.");
         return NoContent();
     }
+
+
     
     
 }
