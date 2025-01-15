@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using wpf_app.Models;
 
 namespace wpf_app
 {
@@ -65,8 +66,33 @@ namespace wpf_app
         // Usuń klienta po ID
         public async Task DeleteKlientAsync(int id)
         {
-            await HandleApiCallAsync<object>(() => _httpClient.DeleteAsync($"Klient/{id}"));
+            try
+            {
+                // Tworzenie żądania DELETE
+                var request = new HttpRequestMessage(HttpMethod.Delete, $"Klient/{id}");
+                request.Content = new StringContent(string.Empty); // Dodanie pustej treści
+
+                Console.WriteLine($"Wysyłanie żądania DELETE na URL: {request.RequestUri}");
+
+                // Wysłanie żądania
+                var response = await _httpClient.SendAsync(request);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorResponse = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Błąd DELETE: {response.StatusCode} - {errorResponse}");
+                    throw new Exception($"Błąd podczas usuwania klienta: {response.StatusCode} - {errorResponse}");
+                }
+
+                Console.WriteLine("Klient został pomyślnie usunięty.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Błąd w DeleteKlientAsync: {ex.Message}");
+                throw;
+            }
         }
+
 
         // Pobierz listę samochodów
         public async Task<List<Samochod>> GetSamochodyAsync()
@@ -96,13 +122,26 @@ namespace wpf_app
         // Aktualizuj klienta po ID
         public async Task UpdateKlientAsync(int id, Klient klient)
         {
-            await HandleApiCallAsync<object>(() =>
+            try
             {
                 var json = JsonSerializer.Serialize(klient);
+                Console.WriteLine($"Wysyłany JSON: {json}"); // Logowanie JSON-a
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                return _httpClient.PutAsync($"Klient/{id}", content);
-            });
+                var response = await _httpClient.PutAsync($"Klient/{id}", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorResponse = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Błąd podczas aktualizacji klienta: {errorResponse}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[UpdateKlientAsync ERROR]: {ex.Message}");
+                throw;
+            }
         }
+
 
         // Pobierz listę wypożyczeń
         public async Task<List<Wypozyczenie>> GetWypozyczeniaAsync()

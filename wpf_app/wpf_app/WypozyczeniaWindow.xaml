@@ -1,87 +1,61 @@
 ﻿<Window x:Class="wpf_app.WypozyczeniaWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Zarządzanie Wypożyczeniami" Height="700" Width="1100">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-    <Grid Margin="10">
-        <!-- Nagłówek -->
-        <TextBlock Text="Wypożyczenia" 
-                   FontSize="20" 
-                   FontWeight="Bold" 
-                   HorizontalAlignment="Center" 
-                   Margin="0,0,0,20" />
+        xmlns:controls="clr-namespace:wpf_app.Controls"
+        Title="Zarządzanie Wypożyczeniami" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
 
-        <!-- Formularz danych -->
-        <StackPanel Orientation="Vertical" Margin="10,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300">
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="ID Klienta:" Width="100" VerticalAlignment="Center" />
-                <TextBox x:Name="IdKlientTextBox" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="ID Samochodu:" Width="100" VerticalAlignment="Center" />
-                <TextBox x:Name="IdSamochodTextBox" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Data Od:" Width="100" VerticalAlignment="Center" />
-                <DatePicker x:Name="DataOdDatePicker" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Data Do:" Width="100" VerticalAlignment="Center" />
-                <DatePicker x:Name="DataDoDatePicker" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Ilość:" Width="100" VerticalAlignment="Center" />
-                <TextBox x:Name="IloscTextBox" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Typ Ilości:" Width="100" VerticalAlignment="Center" />
-                <TextBox x:Name="TypIlosciTextBox" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Stawka:" Width="100" VerticalAlignment="Center" />
-                <TextBox x:Name="StawkaTextBox" Width="180" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Kwota:" Width="100" VerticalAlignment="Center" />
-                <TextBox x:Name="KwotaTextBox" Width="180" />
-            </StackPanel>
+        <!-- Left Panel -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <Label Content="ID Klienta:" />
+            <TextBox Name="IdKlientaTextBox" />
 
-            <!-- Przyciski akcji -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,20">
-                <Button Content="Dodaj" Width="90" Height="35" Margin="10,0,10,0" Click="DodajWypozyczenie_Click" />
-                <Button Content="Usuń" Width="90" Height="35" Margin="10,0,10,0" Click="UsunWypozyczenie_Click" />
+            <Label Content="ID Samochodu:" />
+            <TextBox Name="IdSamochoduTextBox" />
+
+            <Label Content="Data i Czas Od:" />
+            <controls:DateTimePicker x:Name="DataOdDateTimePicker" />
+
+            <Label Content="Data i Czas Do:" />
+            <controls:DateTimePicker x:Name="DataDoDateTimePicker" />
+
+            <Label Content="Ilość:" />
+            <TextBox Name="IloscTextBox" />
+
+            <Label Content="Typ Ilości:" />
+            <TextBox Name="TypIlosciTextBox" />
+
+            <Label Content="Stawka:" />
+            <TextBox Name="StawkaTextBox" />
+
+            <Label Content="Kwota:" />
+            <TextBox Name="KwotaTextBox" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button Name="DodajButton" Content="Dodaj" Width="80" Margin="5" Click="DodajButton_Click" />
+                <Button Name="UsunButton" Content="Usuń" Width="80" Margin="5" Click="UsunButton_Click" />
             </StackPanel>
         </StackPanel>
 
-        <!-- Lista wypożyczeń -->
-        <ListView x:Name="WypozyczeniaListView" Margin="320,50,320,10" VerticalAlignment="Stretch">
+        <!-- Right Panel -->
+        <ListView Name="WypozyczeniaListView" Grid.Column="1" Margin="10">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50" />
-                    <GridViewColumn Header="ID Klienta" DisplayMemberBinding="{Binding IdKlient}" Width="100" />
+                    <GridViewColumn Header="ID Klienta" DisplayMemberBinding="{Binding IdKlient}" Width="80" />
                     <GridViewColumn Header="ID Samochodu" DisplayMemberBinding="{Binding IdSamochod}" Width="100" />
                     <GridViewColumn Header="Data Od" DisplayMemberBinding="{Binding DataOd}" Width="150" />
                     <GridViewColumn Header="Data Do" DisplayMemberBinding="{Binding DataDo}" Width="150" />
                     <GridViewColumn Header="Ilość" DisplayMemberBinding="{Binding Ilosc}" Width="50" />
-                    <GridViewColumn Header="Typ Ilości" DisplayMemberBinding="{Binding TypIlosci}" Width="100" />
+                    <GridViewColumn Header="Typ Ilości" DisplayMemberBinding="{Binding TypIlosci}" Width="80" />
                     <GridViewColumn Header="Stawka" DisplayMemberBinding="{Binding Stawka}" Width="100" />
                     <GridViewColumn Header="Kwota" DisplayMemberBinding="{Binding Kwota}" Width="100" />
                 </GridView>
             </ListView.View>
         </ListView>
-
-        <!-- Legenda cennika -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50,10,0" Width="200">
-            <TextBlock Text="Legenda Cennika" FontSize="16" FontWeight="Bold" Margin="-60,0,0,10" />
-            <ListView x:Name="CennikListView" Height="200" Margin="-60,0,0,10" >
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50" />
-                        <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" Width="130" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
     </Grid>
-    </ScrollViewer>
 </Window>

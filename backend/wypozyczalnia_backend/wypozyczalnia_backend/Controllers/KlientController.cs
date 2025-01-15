@@ -25,14 +25,15 @@ public class KlientController : ControllerBase
             .Select(k => new
             {
                 k.Id,
-                Imie = k.Imie ?? string.Empty, // Obsługa NULL
-                Nazwisko = k.Nazwisko ?? string.Empty, // Obsługa NULL
+                Imie = k.Imie ?? string.Empty,
+                Nazwisko = k.Nazwisko ?? string.Empty,
                 Nazwa = k.Nazwa ?? string.Empty,
-                PESEL = k.PESEL ?? 0,
+                PESEL = k.PESEL ?? 0, // Domyślna wartość dla NULL
                 NIP = k.NIP ?? 0,
                 NrTelefonu = k.NrTelefonu ?? string.Empty,
                 DowodOsobisty = k.DowodOsobisty ?? string.Empty
             })
+
             .ToListAsync();
 
         if (klienci.Count == 0)
@@ -63,29 +64,54 @@ public class KlientController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, Klient klient)
     {
-        if (id != klient.Id) return BadRequest();
-        _context.Entry(klient).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
-        return NoContent();
+        // Walidacja danych wejściowych
+        if (klient == null)
+        {
+            return BadRequest("Obiekt klienta nie może być null.");
+        }
+
+        if (id != klient.Id)
+        {
+            return BadRequest("Nieprawidłowy ID klienta. ID w URL musi odpowiadać ID w obiekcie klienta.");
+        }
+
+        try
+        {
+            _context.Entry(klient).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        catch (DbUpdateException ex)
+        {
+            // Logowanie błędu
+            Console.WriteLine($"[Update ERROR]: {ex.Message}");
+            return StatusCode(500, "Wystąpił błąd podczas aktualizacji klienta w bazie danych.");
+        }
+        catch (Exception ex)
+        {
+            // Logowanie błędu
+            Console.WriteLine($"[General ERROR]: {ex.Message}");
+            return StatusCode(500, "Wystąpił niespodziewany błąd.");
+        }
     }
+
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
-        Console.WriteLine($"Received ID: {id} (Type: {id.GetType()})");
+        Console.WriteLine($"Attempting to delete client with ID: {id}");
 
         var klient = await _context.Klienci.FindAsync(id);
         if (klient == null)
         {
-            Console.WriteLine("Client not found.");
+            Console.WriteLine("Klient not found.");
             return NotFound();
         }
 
-        Console.WriteLine($"Deleting client with ID: {klient.Id}");
         _context.Klienci.Remove(klient);
         await _context.SaveChangesAsync();
-
-        Console.WriteLine("Client deleted.");
+        Console.WriteLine($"Deleted client with ID: {id}");
         return NoContent();
     }
+
 
 }

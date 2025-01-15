@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\wypozyczalnia\\backend\\wypozyczalnia_backend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D4A3BCBC-217F-4BBA-A18F-5D980C16EFEE}|wypozyczalnia_backend\\wypozyczalnia_backend.csproj|d:\\wypozyczalnia\\backend\\wypozyczalnia_backend\\wypozyczalnia_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4A3BCBC-217F-4BBA-A18F-5D980C16EFEE}|wypozyczalnia_backend\\wypozyczalnia_backend.csproj|solutionrelative:wypozyczalnia_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +14,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\wypozyczalnia\\backend\\wypozyczalnia_backend\\wypozyczalnia_backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "wypozyczalnia_backend\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\wypozyczalnia\\backend\\wypozyczalnia_backend\\wypozyczalnia_backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "wypozyczalnia_backend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T16:55:24.456Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"

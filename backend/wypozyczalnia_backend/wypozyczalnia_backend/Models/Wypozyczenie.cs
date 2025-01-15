@@ -1,16 +1,28 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using wypozyczalnia_backend.Models;
 
-namespace wpf_app;
-
-public class Wypozyczenie
+namespace wpf_app
 {
-    public int Id { get; set; }
-    public int IdKlient { get; set; }
-    public int IdSamochod { get; set; }
-    public DateTime DataOd { get; set; }
-    public DateTime DataDo { get; set; }
-    public int Ilosc { get; set; }
-    public string TypIlosci { get; set; }
-    public decimal Stawka { get; set; }
-    public decimal Kwota { get; set; }
+    public class Wypozyczenie
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [ForeignKey("Klient")]
+        public int IdKlient { get; set; }
+        public Klient? Klient { get; set; } // Opcjonalna relacja
+
+        [ForeignKey("Samochod")]
+        public int IdSamochod { get; set; }
+        public Samochod? Samochod { get; set; } // Opcjonalna relacja
+
+        public DateTime DataOd { get; set; }
+        public DateTime DataDo { get; set; }
+        public int Ilosc { get; set; }
+        public int TypIlosci { get; set; }
+        public decimal Stawka { get; set; }
+        public decimal Kwota { get; set; }
+    }
+
 }

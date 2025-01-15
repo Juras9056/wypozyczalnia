@@ -10,7 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Konfiguracja bazy danych
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+        .EnableSensitiveDataLogging() // Włącza logowanie danych wrażliwych (np. wartości parametrów)
+        .LogTo(Console.WriteLine));  // Loguje zapytania SQL do konsoli
+
 
 // Konfiguracja JWT
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "YourSuperSecureKeyThatIs32CharsLong!";
@@ -37,6 +40,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+// Konfiguracja Swaggera
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -70,6 +74,9 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
+
+    // Dodanie CustomSchemaIds dla unikalnych identyfikatorów schematów
+    c.CustomSchemaIds(type => type.FullName);
 });
 
 var app = builder.Build();

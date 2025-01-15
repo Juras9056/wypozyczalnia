@@ -50,8 +50,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -62,8 +66,7 @@
               "RelativeToolTip": "wpf_app\\KlienciWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T10:49:45.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:49:45.137Z"
             },
             {
               "$type": "Document",
@@ -74,8 +77,7 @@
               "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\KlienciWindow.xaml",
               "RelativeToolTip": "wpf_app\\KlienciWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T10:49:12.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:49:12.026Z"
             },
             {
               "$type": "Document",
@@ -86,8 +88,7 @@
               "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\MainWindow.xaml",
               "RelativeToolTip": "wpf_app\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T10:01:48.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:01:48.537Z"
             },
             {
               "$type": "Document",
@@ -103,10 +104,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "WypozyczeniaWindow.xaml",
@@ -115,21 +112,19 @@
               "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\WypozyczeniaWindow.xaml",
               "RelativeToolTip": "wpf_app\\WypozyczeniaWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T10:48:53.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:48:53.726Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "wpf_app",
+              "Title": "wpf_app.csproj",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\wpf_app.csproj",
               "RelativeDocumentMoniker": "wpf_app\\wpf_app.csproj",
               "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\wpf_app.csproj",
               "RelativeToolTip": "wpf_app\\wpf_app.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-10T10:14:40.76Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:14:40.76Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\SamochodyWindow.xaml",
               "RelativeToolTip": "wpf_app\\SamochodyWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T10:48:21.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:48:21.239Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "wpf_app\\Klient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T10:39:11.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:39:11.616Z"
             },
             {
               "$type": "Document",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "wpf_app\\ApiClient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T10:47:10.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:47:10.336Z"
             },
             {
               "$type": "Document",
@@ -178,8 +170,7 @@
               "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\App.xaml",
               "RelativeToolTip": "wpf_app\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T10:47:09.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-10T10:47:09.37Z"
             }
           ]
         }

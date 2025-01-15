@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\wypozyczalnia\\wpf_app\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -11,12 +15,12 @@
       "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\klienciwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\wpf_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\wpf_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\klienciwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\klienciwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\wpf_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|solutionrelative:wpf_app\\wpf_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{325707BC-BC56-45D3-82CB-52CAE6CFA094}|wpf_app\\wpf_app.csproj|d:\\wypozyczalnia\\wpf_app\\wpf_app\\wypozyczeniawindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -46,11 +50,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "KlienciWindow.xaml.cs",
+              "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\KlienciWindow.xaml.cs",
+              "RelativeDocumentMoniker": "wpf_app\\KlienciWindow.xaml.cs",
+              "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\KlienciWindow.xaml.cs",
+              "RelativeToolTip": "wpf_app\\KlienciWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T10:49:45.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "KlienciWindow.xaml",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\KlienciWindow.xaml",
               "RelativeDocumentMoniker": "wpf_app\\KlienciWindow.xaml",
@@ -62,20 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "wpf_app\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\MainWindow.xaml.cs*",
-              "RelativeToolTip": "wpf_app\\MainWindow.xaml.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T10:06:32.759Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\MainWindow.xaml",
               "RelativeDocumentMoniker": "wpf_app\\MainWindow.xaml",
@@ -87,7 +91,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "wpf_app\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\MainWindow.xaml.cs",
+              "RelativeToolTip": "wpf_app\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T10:06:32.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "WypozyczeniaWindow.xaml",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\WypozyczeniaWindow.xaml",
               "RelativeDocumentMoniker": "wpf_app\\WypozyczeniaWindow.xaml",
@@ -99,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "wpf_app",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\wpf_app.csproj",
               "RelativeDocumentMoniker": "wpf_app\\wpf_app.csproj",
@@ -112,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "SamochodyWindow.xaml",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\SamochodyWindow.xaml",
               "RelativeDocumentMoniker": "wpf_app\\SamochodyWindow.xaml",
@@ -124,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Klient.cs",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\Klient.cs",
               "RelativeDocumentMoniker": "wpf_app\\Klient.cs",
@@ -137,12 +158,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ApiClient.cs",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\ApiClient.cs",
               "RelativeDocumentMoniker": "wpf_app\\ApiClient.cs",
-              "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\ApiClient.cs*",
-              "RelativeToolTip": "wpf_app\\ApiClient.cs*",
+              "ToolTip": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\ApiClient.cs",
+              "RelativeToolTip": "wpf_app\\ApiClient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-10T10:47:10.336Z",
@@ -150,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\wypozyczalnia\\wpf_app\\wpf_app\\App.xaml",
               "RelativeDocumentMoniker": "wpf_app\\App.xaml",
@@ -159,10 +180,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-10T10:47:09.37Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             }
           ]
         }

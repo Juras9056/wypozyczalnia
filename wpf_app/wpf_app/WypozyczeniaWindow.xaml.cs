@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
+using wpf_app.Controls;
+using wpf_app.Models;
 
 namespace wpf_app
 {
@@ -15,7 +16,7 @@ namespace wpf_app
             LoadWypozyczenia();
         }
 
-        private async void LoadWypozyczenia()
+        private async Task LoadWypozyczenia()
         {
             try
             {
@@ -28,36 +29,40 @@ namespace wpf_app
             }
         }
 
-        private async void DodajWypozyczenie_Click(object sender, RoutedEventArgs e)
+        private async void DodajButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (!int.TryParse(IdKlientTextBox.Text, out var idKlient) ||
-                    !int.TryParse(IdSamochodTextBox.Text, out var idSamochod) ||
-                    !int.TryParse(IloscTextBox.Text, out var ilosc) ||
-                    !decimal.TryParse(StawkaTextBox.Text, out var stawka) ||
-                    !decimal.TryParse(KwotaTextBox.Text, out var kwota) ||
-                    string.IsNullOrWhiteSpace(TypIlosciTextBox.Text))
+                // Pobranie daty i czasu z elementów DateTimePicker
+                if (!DataOdDateTimePicker.SelectedDateTime.HasValue || !DataDoDateTimePicker.SelectedDateTime.HasValue)
                 {
-                    MessageBox.Show("Uzupełnij poprawnie wszystkie pola.");
+                    MessageBox.Show("Wprowadź poprawne daty i godziny dla 'Data i Czas Od' oraz 'Data i Czas Do'.");
                     return;
                 }
 
+                DateTime dataOd = DataOdDateTimePicker.SelectedDateTime.Value;
+                DateTime dataDo = DataDoDateTimePicker.SelectedDateTime.Value;
+
+                // Tworzenie obiektu Wypozyczenie
                 var wypozyczenie = new Wypozyczenie
                 {
-                    IdKlient = idKlient,
-                    IdSamochod = idSamochod,
-                    DataOd = DataOdDatePicker.SelectedDate ?? DateTime.Now,
-                    DataDo = DataDoDatePicker.SelectedDate ?? DateTime.Now,
-                    Ilosc = ilosc,
-                    TypIlosci = TypIlosciTextBox.Text,
-                    Stawka = stawka,
-                    Kwota = kwota
+                    IdKlient = int.Parse(IdKlientaTextBox.Text),
+                    IdSamochod = int.Parse(IdSamochoduTextBox.Text),
+                    DataOd = dataOd,
+                    DataDo = dataDo,
+                    Ilosc = int.Parse(IloscTextBox.Text),
+                    TypIlosci = int.Parse(TypIlosciTextBox.Text),
+                    Stawka = decimal.Parse(StawkaTextBox.Text),
+                    Kwota = decimal.Parse(KwotaTextBox.Text)
                 };
 
+                // Wysyłanie danych do API
                 await _apiClient.AddWypozyczenieAsync(wypozyczenie);
-                LoadWypozyczenia();
-                MessageBox.Show("Dodano wypożyczenie.");
+
+                // Odświeżenie widoku
+                await LoadWypozyczenia();
+
+                MessageBox.Show("Wypożyczenie zostało dodane.");
             }
             catch (Exception ex)
             {
@@ -65,23 +70,25 @@ namespace wpf_app
             }
         }
 
-        private async void UsunWypozyczenie_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (WypozyczeniaListView.SelectedItem is not Wypozyczenie selected)
-                {
-                    MessageBox.Show("Wybierz wypożyczenie do usunięcia.");
-                    return;
-                }
 
-                await _apiClient.DeleteWypozyczenieAsync(selected.Id);
-                LoadWypozyczenia();
-                MessageBox.Show("Usunięto wypożyczenie.");
-            }
-            catch (Exception ex)
+        private async void UsunButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (WypozyczeniaListView.SelectedItem is Wypozyczenie wypozyczenie)
             {
-                MessageBox.Show($"Błąd podczas usuwania wypożyczenia: {ex.Message}");
+                try
+                {
+                    await _apiClient.DeleteWypozyczenieAsync(wypozyczenie.Id);
+                    LoadWypozyczenia();
+                    MessageBox.Show("Wypożyczenie usunięte pomyślnie.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Błąd podczas usuwania wypożyczenia: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wybierz wypożyczenie do usunięcia.");
             }
         }
     }

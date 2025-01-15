@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 using System.Windows;
 
 namespace wpf_app;
@@ -44,7 +45,12 @@ public partial class KlienciWindow : Window
             return;
         }
 
-        if (!long.TryParse(PESELTextBox.Text, out var pesel))
+        long pesel = 0; // Domyślna wartość PESEL
+        if (string.IsNullOrWhiteSpace(PESELTextBox.Text))
+        {
+            MessageBox.Show("PESEL nie może być pusty. Ustawiono wartość domyślną: 0.");
+        }
+        else if (!long.TryParse(PESELTextBox.Text, out pesel))
         {
             MessageBox.Show("PESEL musi być liczbą.");
             return;
@@ -74,6 +80,7 @@ public partial class KlienciWindow : Window
     }
 
 
+
     private async void EdytujKlienta_Click(object sender, RoutedEventArgs e)
     {
         if (KlienciListView.SelectedItem is not Klient wybranyKlient)
@@ -95,7 +102,12 @@ public partial class KlienciWindow : Window
             return;
         }
 
-        if (!long.TryParse(PESELTextBox.Text, out var pesel))
+        long pesel = 0;
+        if (string.IsNullOrWhiteSpace(PESELTextBox.Text))
+        {
+            MessageBox.Show("PESEL nie może być pusty. Ustawiono wartość domyślną: 0.");
+        }
+        else if (!long.TryParse(PESELTextBox.Text, out pesel))
         {
             MessageBox.Show("PESEL musi być liczbą.");
             return;
@@ -111,6 +123,7 @@ public partial class KlienciWindow : Window
 
         try
         {
+            Console.WriteLine(JsonSerializer.Serialize(wybranyKlient)); // Logowanie obiektu przed wysłaniem
             await _apiClient.UpdateKlientAsync(wybranyKlient.Id, wybranyKlient);
             LoadKlienci();
             MessageBox.Show("Zaktualizowano dane klienta.");
@@ -120,6 +133,7 @@ public partial class KlienciWindow : Window
             MessageBox.Show($"Błąd podczas edytowania klienta: {ex.Message}");
         }
     }
+
 
     
 
